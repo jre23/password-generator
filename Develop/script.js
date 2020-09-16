@@ -13,12 +13,13 @@
 
 function generatePassword() {
 
+  // get user input on how long they want their password to be using parseInt to ensure an integer is stored
   var passwordLength = parseInt(prompt("Choose a length from 8 to 128 characters for your password."));
 
   // test output
   console.log(passwordLength);
-  console.log(typeof passwordLength);
 
+  // prompt the user until they input a valid password length 
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     var passwordLength = parseInt(prompt("Please choose a length from 8 to 128 characters for your password."));
   }
@@ -26,11 +27,13 @@ function generatePassword() {
   // test output
   console.log(passwordLength);
 
+  // set all booleans to false to force following while loop 
   var lowercaseBoolean = uppercaseBoolean = numericBoolean = specialCharactersBoolean = false;
 
+  // this while loop is used to ensure that at least one character type is selected
   while (lowercaseBoolean === false && uppercaseBoolean === false && numericBoolean === false && specialCharactersBoolean === false) {
 
-    alert("At least one character type (lowercase, uppercase, numeric, and/or special characters) must be chosen.")
+    alert("At least one character type (lowercase, uppercase, numeric, or special characters) must be chosen.")
 
     var lowercaseBoolean = confirm("Do you want your password to have lowercase characters? Press OK for yes and Cancel for no.")
     // test output
@@ -49,37 +52,13 @@ function generatePassword() {
     console.log(specialCharactersBoolean);
   }
 
+  // create strings that contain the characters to be used in the password 
   var lowercaseString = "abcdefghijklmnopqrstuvwxyz";
-  //test output
-  console.log(lowercaseString[0]);
-  console.log(lowercaseString[25]);
-
   var uppercaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  //test output
-  console.log(uppercaseString[0]);
-  console.log(uppercaseString[25]);
-
   var numericString = "0123456789";
-  // test output
-  console.log(numericString[0]);
-  console.log(numericString[8]);
-
   var specialCharactersString = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-  //test output
-  console.log(numericString.length);
-  console.log(specialCharactersString.length);
-  console.log(specialCharactersString[24]);
-  console.log(specialCharactersString[3]);
-  //test output of .concat() method
-  console.log(numericString.concat(specialCharactersString).length);
 
-  //Pseudocode
-  // - next write if/else statements comparing each of the different boolean combinations (true, true, true, true) or (true, true, true, false) etc.
-  // - depending on the combination, add the required strings using .concat() method to create new string
-  // - use Math.floor(Math.random() * string.length) to choose a random index of the newly created string
-  // - iterate using for loop up to passwordLength to create password using random chosen string index value as i value in for loop string!
-
-  // function created to combine strings using .concat. The returned string will represent the characters the user has chosen to include in their password. This string will then be used with Math.random() to choose characters for their password
+  // this function will combine the character strings above using String.concat() depending on user input 
   function combineStrings(a, b, c, d) {
     if (b === undefined) {
       return a;
@@ -91,9 +70,12 @@ function generatePassword() {
   }
 
   // test combineStrings function
+  console.log(combineStrings(lowercaseString, numericString));
   console.log(combineStrings(lowercaseString));
+  console.log(combineStrings(lowercaseString, numericString, specialCharactersString));
+  console.log(combineStrings(lowercaseString, uppercaseString, numericString, specialCharactersString));
 
-  // function that creates the password 
+  // function that creates the password depending on how many arguments are passed to it
   function createPass(a, b, c, d) {
     var createPassword = "";
     if (b === undefined) {
@@ -117,21 +99,45 @@ function generatePassword() {
         createPassword = createPassword.concat(combineStrings(a, b, c, d)[randomChoice]);
       }
     }
-    // test that the password created has a length that matches passwordLength
+    // test that the password created has a length that matches the user input passwordLength
     console.log(createPassword.length);
-    // return it 
     return createPassword;
   }
 
-
-  // if statements that will determine the arguments to pass to the createPass function depending on user input booleans
-  if (lowercaseBoolean && uppercaseBoolean) {
+  // if statements that will determine the arguments to pass to the createPass function depending on user input booleans. These if statements compare every combination of possible characters, assuming at least one is chosen. Returns value of createPass when generatePassword() is called
+  if (lowercaseBoolean && uppercaseBoolean && numericBoolean && specialCharactersBoolean) {
+    return createPass(lowercaseString, uppercaseString, numericString, specialCharactersString);
+  } else if (lowercaseBoolean && uppercaseBoolean && numericBoolean) {
+    return createPass(lowercaseString, uppercaseString, numericString);
+  } else if (lowercaseBoolean && uppercaseBoolean && specialCharactersBoolean) {
+    return createPass(lowercaseString, uppercaseString, specialCharactersString);
+  } else if (lowercaseBoolean && numericBoolean && specialCharactersBoolean) {
+    return createPass(lowercaseString, numericString, specialCharactersString);
+  } else if (lowercaseBoolean && uppercaseBoolean) {
     return createPass(lowercaseString, uppercaseString);
+  } else if (lowercaseBoolean && numericBoolean) {
+    return createPass(lowercaseString, numericString);
+  } else if (lowercaseBoolean && specialCharactersBoolean) {
+    return createPass(lowercaseString, specialCharactersString);
+  } else if (uppercaseBoolean && numericBoolean && specialCharactersBoolean) {
+    return createPass(uppercaseString, numericString, specialCharactersString);
+  } else if (uppercaseBoolean && numericBoolean) {
+    return createPass(uppercaseString, numericString);
+  } else if (uppercaseBoolean && specialCharactersBoolean) {
+    return createPass(uppercaseString, specialCharactersString);
+  } else if (uppercaseBoolean) {
+    return createPass(uppercaseString);
+  } else if (numericBoolean && specialCharactersBoolean) {
+    return createPass(numericString, specialCharactersString);
+  } else if (numericBoolean) {
+    return createPass(numericString);
+  } else if (specialCharactersBoolean) {
+    return createPass(specialCharactersString);
+  } else if (lowercaseBoolean) {
+    return createPass(lowercaseString);
   }
 
 }
-
-
 
 ///////////////////////////////////////////////////////////////////////
 // DO NOT TOUCH THIS CODE
