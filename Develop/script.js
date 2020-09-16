@@ -13,41 +13,41 @@
 
 function generatePassword() {
 
-  // var passwordLength = parseInt(prompt("Choose a length from 8 to 128 characters for your password."));
+  var passwordLength = parseInt(prompt("Choose a length from 8 to 128 characters for your password."));
 
-  // // test output
-  // console.log(passwordLength);
-  // console.log(typeof passwordLength);
+  // test output
+  console.log(passwordLength);
+  console.log(typeof passwordLength);
 
-  // while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
-  //   var passwordLength = parseInt(prompt("Please choose a length from 8 to 128 characters for your password."));
-  // }
+  while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+    var passwordLength = parseInt(prompt("Please choose a length from 8 to 128 characters for your password."));
+  }
 
-  // // test output
-  // console.log(passwordLength);
+  // test output
+  console.log(passwordLength);
 
-  // var lowercaseBoolean = uppercaseBoolean = numericBoolean = specialCharactersBoolean = false;
+  var lowercaseBoolean = uppercaseBoolean = numericBoolean = specialCharactersBoolean = false;
 
-  // while (lowercaseBoolean === false && uppercaseBoolean === false && numericBoolean === false && specialCharactersBoolean === false) {
+  while (lowercaseBoolean === false && uppercaseBoolean === false && numericBoolean === false && specialCharactersBoolean === false) {
 
-  //   alert("At least one character type (lowercase, uppercase, numeric, and/or special characters) must be chosen.")
+    alert("At least one character type (lowercase, uppercase, numeric, and/or special characters) must be chosen.")
 
-  //   var lowercaseBoolean = confirm("Do you want your password to have lowercase characters? Press OK for yes and Cancel for no.")
-  //   // test output
-  //   console.log(lowercaseBoolean);
+    var lowercaseBoolean = confirm("Do you want your password to have lowercase characters? Press OK for yes and Cancel for no.")
+    // test output
+    console.log(lowercaseBoolean);
 
-  //   var uppercaseBoolean = confirm("Do you want your password to have uppercase characters? Press OK for yes and Cancel for no.")
-  //   //test output
-  //   console.log(uppercaseBoolean);
+    var uppercaseBoolean = confirm("Do you want your password to have uppercase characters? Press OK for yes and Cancel for no.")
+    //test output
+    console.log(uppercaseBoolean);
 
-  //   var numericBoolean = confirm("Do you want your password to have numbers? Press OK for yes and Cancel for no.")
-  //   //test output
-  //   console.log(numericBoolean);
+    var numericBoolean = confirm("Do you want your password to have numbers? Press OK for yes and Cancel for no.")
+    //test output
+    console.log(numericBoolean);
 
-  //   var specialCharactersBoolean = confirm("Do you want your password to have special characters? Press OK for yes and Cancel for no.")
-  //   //test output
-  //   console.log(specialCharactersBoolean);
-  // }
+    var specialCharactersBoolean = confirm("Do you want your password to have special characters? Press OK for yes and Cancel for no.")
+    //test output
+    console.log(specialCharactersBoolean);
+  }
 
   var lowercaseString = "abcdefghijklmnopqrstuvwxyz";
   //test output
@@ -93,8 +93,43 @@ function generatePassword() {
   // test combineStrings function
   console.log(combineStrings(lowercaseString));
 
-}
+  // function that creates the password 
+  function createPass(a, b, c, d) {
+    var createPassword = "";
+    if (b === undefined) {
+      for (let i = 0; i < passwordLength; i++) {
+        var randomChoice = Math.floor(Math.random() * combineStrings(a).length);
+        createPassword = createPassword.concat(combineStrings(a)[randomChoice]);
+      }
+    } else if (c === undefined) {
+      for (let i = 0; i < passwordLength; i++) {
+        var randomChoice = Math.floor(Math.random() * combineStrings(a, b).length);
+        createPassword = createPassword.concat(combineStrings(a, b)[randomChoice]);
+      }
+    } else if (d === undefined) {
+      for (let i = 0; i < passwordLength; i++) {
+        var randomChoice = Math.floor(Math.random() * combineStrings(a, b, c).length);
+        createPassword = createPassword.concat(combineStrings(a, b, c)[randomChoice]);
+      }
+    } else {
+      for (let i = 0; i < passwordLength; i++) {
+        var randomChoice = Math.floor(Math.random() * combineStrings(a, b, c, d).length);
+        createPassword = createPassword.concat(combineStrings(a, b, c, d)[randomChoice]);
+      }
+    }
+    // test that the password created has a length that matches passwordLength
+    console.log(createPassword.length);
+    // return it 
+    return createPassword;
+  }
 
+
+  // if statements that will determine the arguments to pass to the createPass function depending on user input booleans
+  if (lowercaseBoolean && uppercaseBoolean) {
+    return createPass(lowercaseString, uppercaseString);
+  }
+
+}
 
 
 
