@@ -13,41 +13,64 @@
 
 function generatePassword() {
 
-  var passwordLength = parseInt(prompt("Choose a length from 8 to 128 characters for your password."));
+  // var passwordLength = parseInt(prompt("Choose a length from 8 to 128 characters for your password."));
 
+  // // test output
+  // console.log(passwordLength);
+  // console.log(typeof passwordLength);
+
+  // while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+  //   var passwordLength = parseInt(prompt("Please choose a length from 8 to 128 characters for your password."));
+  // }
+
+  // // test output
+  // console.log(passwordLength);
+
+  // var lowercaseBoolean = uppercaseBoolean = numericBoolean = specialCharactersBoolean = false;
+
+  // while (lowercaseBoolean === false && uppercaseBoolean === false && numericBoolean === false && specialCharactersBoolean === false) {
+
+  //   alert("At least one character type (lowercase, uppercase, numeric, and/or special characters) must be chosen.")
+
+  //   var lowercaseBoolean = confirm("Do you want your password to have lowercase characters? Press OK for yes and Cancel for no.")
+  //   // test output
+  //   console.log(lowercaseBoolean);
+
+  //   var uppercaseBoolean = confirm("Do you want your password to have uppercase characters? Press OK for yes and Cancel for no.")
+  //   //test output
+  //   console.log(uppercaseBoolean);
+
+  //   var numericBoolean = confirm("Do you want your password to have numbers? Press OK for yes and Cancel for no.")
+  //   //test output
+  //   console.log(numericBoolean);
+
+  //   var specialCharactersBoolean = confirm("Do you want your password to have special characters? Press OK for yes and Cancel for no.")
+  //   //test output
+  //   console.log(specialCharactersBoolean);
+  // }
+
+  var lowercaseString = "abcdefghijklmnopqrstuvwxyz";
+  //test output
+  console.log(lowercaseString[0]);
+  console.log(lowercaseString[25]);
+
+  var uppercaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  //test output
+  console.log(uppercaseString[0]);
+  console.log(uppercaseString[25]);
+
+  var numericString = "123456789";
   // test output
-  console.log(passwordLength);
-  console.log(typeof passwordLength);
+  console.log(numericString[0]);
+  console.log(numericString[8]);
 
-  while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
-    var passwordLength = parseInt(prompt("Please choose a length from 8 to 128 characters for your password."));
-  }
+  var specialCharactersString = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+  //test output
+  console.log(specialCharactersString.length);
+  console.log(specialCharactersString[24]);
+  console.log(specialCharactersString[3]);
 
-  // test output
-  console.log(passwordLength);
 
-  var lowercaseBoolean = uppercaseBoolean = numericBoolean = specialCharactersBoolean = false;
-
-  while (lowercaseBoolean === false && uppercaseBoolean === false && numericBoolean === false && specialCharactersBoolean === false) {
-
-    alert("At least one character type (lowercase, uppercase, numeric, and/or special characters) must be chosen.")
-
-    var lowercaseBoolean = confirm("Do you want your password to have lowercase characters? Press OK for yes and Cancel for no.")
-    // test output
-    console.log(lowercaseBoolean);
-
-    var uppercaseBoolean = confirm("Do you want your password to have uppercase characters? Press OK for yes and Cancel for no.")
-    //test output
-    console.log(uppercaseBoolean);
-
-    var numericBoolean = confirm("Do you want your password to have numbers? Press OK for yes and Cancel for no.")
-    //test output
-    console.log(numericBoolean);
-
-    var specialCharactersBoolean = confirm("Do you want your password to have special characters? Press OK for yes and Cancel for no.")
-    //test output
-    console.log(specialCharactersBoolean);
-  }
 }
 
 
