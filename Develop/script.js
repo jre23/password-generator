@@ -59,17 +59,39 @@ function generatePassword() {
   console.log(uppercaseString[0]);
   console.log(uppercaseString[25]);
 
-  var numericString = "123456789";
+  var numericString = "0123456789";
   // test output
   console.log(numericString[0]);
   console.log(numericString[8]);
 
   var specialCharactersString = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
   //test output
+  console.log(numericString.length);
   console.log(specialCharactersString.length);
   console.log(specialCharactersString[24]);
   console.log(specialCharactersString[3]);
+  //test output of .concat() method
+  console.log(numericString.concat(specialCharactersString).length);
 
+  //Pseudocode
+  // - next write if/else statements comparing each of the different boolean combinations (true, true, true, true) or (true, true, true, false) etc.
+  // - depending on the combination, add the required strings using .concat() method to create new string
+  // - use Math.floor(Math.random() * string.length) to choose a random index of the newly created string
+  // - iterate using for loop up to passwordLength to create password using random chosen string index value as i value in for loop string!
+
+  // function created to combine strings using .concat. The returned string will represent the characters the user has chosen to include in their password. This string will then be used with Math.random() to choose characters for their password
+  function combineStrings(a, b, c, d) {
+    if (b === undefined) {
+      return a;
+    } else if (c === undefined) {
+      return a.concat(b);
+    } else if (d === undefined) {
+      return a.concat(b, c);
+    } else return a.concat(b, c, d);
+  }
+
+  // test combineStrings function
+  console.log(combineStrings(lowercaseString));
 
 }
 
