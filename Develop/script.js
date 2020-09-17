@@ -3,7 +3,7 @@
 //
 // * For this assignment, you will not be changing the HTML and CSS at all.
 //
-// * You will need a generatePassword function is called when the user
+// * You will need a generatePassword function that is called when the user
 //   clicks the Generate Password button.
 //
 // * You can create other functions that are called from within
@@ -19,7 +19,7 @@ function generatePassword() {
   // test output
   console.log(passwordLength);
 
-  // prompt the user until they input a valid password length 
+  // while loop to validate user input
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     var passwordLength = parseInt(prompt("Please choose a length from 8 to 128 characters for your password."));
   }
@@ -58,48 +58,30 @@ function generatePassword() {
   var numericString = "0123456789";
   var specialCharactersString = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
-  // this function will combine the character strings above using String.concat() depending on user input 
-  function combineStrings(a, b, c, d) {
-    if (b === undefined) {
-      return a;
-    } else if (c === undefined) {
-      return a.concat(b);
-    } else if (d === undefined) {
-      return a.concat(b, c);
-    } else return a.concat(b, c, d);
-  }
-
-  // test combineStrings function
-  console.log(combineStrings(lowercaseString, numericString));
-  console.log(combineStrings(lowercaseString));
-  console.log(combineStrings(lowercaseString, numericString, specialCharactersString));
-  console.log(combineStrings(lowercaseString, uppercaseString, numericString, specialCharactersString));
-
-  // function that creates the password depending on how many arguments are passed to it
+  // this function creates the password depending on how many arguments are passed to it. Arguments are directly related to what character types the user chooses
   function createPass(a, b, c, d) {
     var createPassword = "";
     if (b === undefined) {
       for (let i = 0; i < passwordLength; i++) {
-        var randomChoice = Math.floor(Math.random() * combineStrings(a).length);
-        createPassword = createPassword.concat(combineStrings(a)[randomChoice]);
+        var randomChoice = Math.floor(Math.random() * a.length);
+        createPassword = createPassword.concat((a)[randomChoice]);
       }
     } else if (c === undefined) {
       for (let i = 0; i < passwordLength; i++) {
-        var randomChoice = Math.floor(Math.random() * combineStrings(a, b).length);
-        createPassword = createPassword.concat(combineStrings(a, b)[randomChoice]);
+        var randomChoice = Math.floor(Math.random() * a.concat(b).length);
+        createPassword = createPassword.concat(a.concat(b)[randomChoice]);
       }
     } else if (d === undefined) {
       for (let i = 0; i < passwordLength; i++) {
-        var randomChoice = Math.floor(Math.random() * combineStrings(a, b, c).length);
-        createPassword = createPassword.concat(combineStrings(a, b, c)[randomChoice]);
+        var randomChoice = Math.floor(Math.random() * a.concat(b, c).length);
+        createPassword = createPassword.concat(a.concat(b, c)[randomChoice]);
       }
     } else {
       for (let i = 0; i < passwordLength; i++) {
-        var randomChoice = Math.floor(Math.random() * combineStrings(a, b, c, d).length);
-        createPassword = createPassword.concat(combineStrings(a, b, c, d)[randomChoice]);
+        var randomChoice = Math.floor(Math.random() * a.concat(b, c, d).length);
+        createPassword = createPassword.concat(a.concat(b, c, d)[randomChoice]);
       }
     }
-    // test that the password created has a length that matches the user input passwordLength
     console.log(createPassword.length);
     return createPassword;
   }
@@ -136,7 +118,6 @@ function generatePassword() {
   } else if (lowercaseBoolean) {
     return createPass(lowercaseString);
   }
-
 }
 
 ///////////////////////////////////////////////////////////////////////
