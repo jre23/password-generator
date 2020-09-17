@@ -82,6 +82,8 @@ function generatePassword() {
         createPassword = createPassword.concat(a.concat(b, c, d)[randomChoice]);
       }
     }
+
+    // test that the created password has the same length as the user input into passwordLength
     console.log(createPassword.length);
     return createPassword;
   }
