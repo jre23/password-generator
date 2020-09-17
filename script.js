@@ -64,7 +64,7 @@ function generatePassword() {
     if (b === undefined) {
       for (let i = 0; i < passwordLength; i++) {
         var randomChoice = Math.floor(Math.random() * a.length);
-        createPassword = createPassword.concat((a)[randomChoice]);
+        createPassword = createPassword.concat(a[randomChoice]);
       }
     } else if (c === undefined) {
       for (let i = 0; i < passwordLength; i++) {
@@ -82,8 +82,7 @@ function generatePassword() {
         createPassword = createPassword.concat(a.concat(b, c, d)[randomChoice]);
       }
     }
-
-    // test that the created password has the same length as the user input into passwordLength
+    // test that the created password has the same length as the user input passwordLength
     console.log(createPassword.length);
     return createPassword;
   }
