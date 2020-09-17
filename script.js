@@ -13,17 +13,18 @@
 
 function generatePassword() {
 
-  // get user input on how long they want their password to be using parseInt to ensure an integer is stored
-  var passwordLength = parseInt(prompt("Choose a length from 8 to 128 characters for your password."));
+  // set passwordLength = 1 to force while loop check
+  var passwordLength = 1;
 
-  // test output
-  console.log(passwordLength);
-
-  // while loop to validate user input
+  // while loop to validate user input. Checks if user hits cancel, otherwise will prompt the user until a valid input is received 
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
-    var passwordLength = parseInt(prompt("Please choose a length from 8 to 128 characters for your password."));
+    passwordLength = prompt("Please choose a length from 8 to 128 characters for your password.");
+    if (passwordLength === null) {
+      return;
+    } else {
+      passwordLength = parseInt(passwordLength);
+    }
   }
-
   // test output
   console.log(passwordLength);
 
@@ -63,7 +64,9 @@ function generatePassword() {
     var createPassword = "";
     if (b === undefined) {
       for (let i = 0; i < passwordLength; i++) {
+        // randomChoice is a random number from 0 to the length of the string(s) - 1
         var randomChoice = Math.floor(Math.random() * a.length);
+        // createPassword is a string that has random values added to the end of it from the string argument(s) using randomChoice as the index 
         createPassword = createPassword.concat(a[randomChoice]);
       }
     } else if (c === undefined) {
