@@ -10,11 +10,25 @@ No other files in this repo were edited other than script.js and this README.
 
 [GitHub repo](https://github.com/jre23/password-generator)
 
-[Deployed on GitHub pages]()
+[Deployed on GitHub pages](https://jre23.github.io/password-generator/)
 
-Screenshots:
+## Screenshots:
 
-(image placeholder)
+
+![image](https://user-images.githubusercontent.com/69170823/93415557-a1961700-f858-11ea-9bda-26e72ac595ef.png)
+
+
+![image](https://user-images.githubusercontent.com/69170823/93415586-b8d50480-f858-11ea-957c-551e935ee9fe.png)
+
+
+![image](https://user-images.githubusercontent.com/69170823/93415654-db671d80-f858-11ea-8f5e-b01cab11e2dd.png)
+
+
+![image](https://user-images.githubusercontent.com/69170823/93415704-f89bec00-f858-11ea-82bb-72c8031820c2.png)
+
+
+![image](https://user-images.githubusercontent.com/69170823/93415781-2aad4e00-f859-11ea-8c37-2a1085a4c28d.png)
+
 
 ## Installation
 
