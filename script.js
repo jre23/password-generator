@@ -30,15 +30,10 @@ function generatePassword() {
 
   // this while loop is used to ensure that at least one character type is selected
   while (lowercaseBoolean === false && uppercaseBoolean === false && numericBoolean === false && specialCharactersBoolean === false) {
-
     alert("At least one character type (lowercase, uppercase, numeric, or special characters) must be chosen.");
-
     var lowercaseBoolean = confirm("Do you want your password to have lowercase characters? Press OK for yes and Cancel for no.");
-
     var uppercaseBoolean = confirm("Do you want your password to have uppercase characters? Press OK for yes and Cancel for no.");
-
     var numericBoolean = confirm("Do you want your password to have numbers? Press OK for yes and Cancel for no.");
-
     var specialCharactersBoolean = confirm("Do you want your password to have special characters? Press OK for yes and Cancel for no.");
   }
 
