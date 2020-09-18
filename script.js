@@ -20,10 +20,9 @@ function generatePassword() {
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     passwordLength = prompt("Please choose a length from 8 to 128 characters for your password.");
     if (passwordLength === null) {
-      return;
-    } else {
-      passwordLength = parseInt(passwordLength);
+      return "User has selected Cancel.";
     }
+    passwordLength = parseInt(passwordLength);
   }
   // test output
   console.log(passwordLength);
