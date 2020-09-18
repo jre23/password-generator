@@ -43,7 +43,7 @@ function generatePassword() {
   var numericString = "0123456789";
   var specialCharactersString = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
-  // this function creates the password depending on how many arguments are passed to it. Arguments are directly related to what character types the user chooses
+  // this function creates the password depending on how many arguments are passed to it. Arguments are directly related to what character types the user chooses. If more than one string is passed as an argument, this function uses the concat() method to join the strings.
   function createPass(a, b, c, d) {
     var createPassword = "";
     if (b === undefined) {
