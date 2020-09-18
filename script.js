@@ -24,8 +24,6 @@ function generatePassword() {
     }
     passwordLength = parseInt(passwordLength);
   }
-  // test output
-  console.log(passwordLength);
 
   // set all booleans to false to force following while loop 
   var lowercaseBoolean = uppercaseBoolean = numericBoolean = specialCharactersBoolean = false;
@@ -33,26 +31,18 @@ function generatePassword() {
   // this while loop is used to ensure that at least one character type is selected
   while (lowercaseBoolean === false && uppercaseBoolean === false && numericBoolean === false && specialCharactersBoolean === false) {
 
-    alert("At least one character type (lowercase, uppercase, numeric, or special characters) must be chosen.")
+    alert("At least one character type (lowercase, uppercase, numeric, or special characters) must be chosen.");
 
-    var lowercaseBoolean = confirm("Do you want your password to have lowercase characters? Press OK for yes and Cancel for no.")
-    // test output
-    console.log(lowercaseBoolean);
+    var lowercaseBoolean = confirm("Do you want your password to have lowercase characters? Press OK for yes and Cancel for no.");
 
-    var uppercaseBoolean = confirm("Do you want your password to have uppercase characters? Press OK for yes and Cancel for no.")
-    //test output
-    console.log(uppercaseBoolean);
+    var uppercaseBoolean = confirm("Do you want your password to have uppercase characters? Press OK for yes and Cancel for no.");
 
-    var numericBoolean = confirm("Do you want your password to have numbers? Press OK for yes and Cancel for no.")
-    //test output
-    console.log(numericBoolean);
+    var numericBoolean = confirm("Do you want your password to have numbers? Press OK for yes and Cancel for no.");
 
-    var specialCharactersBoolean = confirm("Do you want your password to have special characters? Press OK for yes and Cancel for no.")
-    //test output
-    console.log(specialCharactersBoolean);
+    var specialCharactersBoolean = confirm("Do you want your password to have special characters? Press OK for yes and Cancel for no.");
   }
 
-  // create strings that contain the characters to be used in the password 
+  // define strings that contain the characters to be used in the password 
   var lowercaseString = "abcdefghijklmnopqrstuvwxyz";
   var uppercaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numericString = "0123456789";
@@ -84,8 +74,6 @@ function generatePassword() {
         createPassword = createPassword.concat(a.concat(b, c, d)[randomChoice]);
       }
     }
-    // test that the created password has the same length as the user input passwordLength
-    console.log(createPassword.length);
     return createPassword;
   }
 
